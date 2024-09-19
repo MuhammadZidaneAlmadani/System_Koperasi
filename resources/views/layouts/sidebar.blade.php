@@ -70,13 +70,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('/laporanPinjaman') }}" class="nav-link">
+                            <a href="{{ url('/laporans') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Pinjaman</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('/laporanAngsuran') }}" class="nav-link">
+                            <a href="{{ url('/laporanA') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Laporan Angsuran</p>
                             </a>

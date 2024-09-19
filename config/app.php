@@ -151,5 +151,10 @@ return [
 
     // Service provider tambahan
     Barryvdh\DomPDF\ServiceProvider::class, // Provider DomPDF
-    ]
+],
+
+    'aliases' => [
+ 'PDF' => Barryvdh\DomPDF\Facade\Pdf::class,
+
+],
 ];
