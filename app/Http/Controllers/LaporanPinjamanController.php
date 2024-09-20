@@ -70,13 +70,14 @@ class LaporanPinjamanController extends Controller
 
     public function generatePDF()
     {
-        $laporans = LaporanPinjamanModel::all();
+        $laporans = LaporanPinjamanModel::join('pinjaman', 'laporan_pinjaman.pinjaman_id', '=', 'pinjaman.id')
+            ->join('users', 'pinjaman.user_id', '=', 'users.id')
+            ->select('laporan_pinjaman.*', 'pinjaman.*', 'users.name')
+            ->get();
 
-        // Load the view for the PDF
-        $pdf = Pdf::loadView('LaporanPinjaman.pdf', compact('laporans'));
+        $pdf = Pdf::loadView('LaporanPinjaman.pdf', array('laporans' =>  $laporans));
 
         // Return the generated PDF file for download
         return $pdf->download('laporan_pinjaman.pdf');
     }
-
 }

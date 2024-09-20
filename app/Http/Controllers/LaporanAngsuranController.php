@@ -73,15 +73,13 @@ class LaporanAngsuranController extends Controller
 
     public function generatePDF()
     {
-        // Fetch all LaporanAngsuran records and assign to 'laporanAs'
-        $laporanAs = LaporanAngsuranModel::all();
+        $laporanAs = LaporanAngsuranModel::join('angsuran', 'laporan_angsuran.angsuran_id', '=', 'angsuran.id')
+            ->select('laporan_angsuran.*', 'angsuran.*')
+            ->get();
 
-        // Load the view for the PDF with the 'laporanAs' variable
         $pdf = Pdf::loadView('LaporanAngsuran.pdf', compact('laporanAs'));
 
         // Return the generated PDF for download
         return $pdf->download('laporan_angsuran.pdf');
     }
-
-
 }
