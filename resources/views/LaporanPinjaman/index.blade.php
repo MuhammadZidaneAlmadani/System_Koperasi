@@ -2,7 +2,10 @@
 
 @section('content')
     <h1>Daftar Laporan Pinjaman</h1>
-    <a href="{{ route('laporans.create') }}" class="btn btn-primary">Tambah Laporan</a>
+    <div class="mb-3 mt-2">
+        <a href="{{ route('laporans.create') }}" class="btn btn-primary">Tambah Laporan</a>
+        <a href="{{ route('laporans.pdf') }}" class="mx-3 btn btn-success">Cetak Laporan</a>
+    </div>
     <table class="table">
         <thead>
             <tr>
@@ -21,7 +24,6 @@
                     <td>
                         <a href="{{ route('laporans.show', $laporan->id) }}" class="btn btn-info">Detail</a>
                         <a href="{{ route('laporans.edit', $laporan->id) }}" class="btn btn-warning">Edit</a>
-                        <a href="{{ route('laporans.pdf') }}" class="btn btn-success">Download PDF</a>
                         <form action="{{ route('laporans.destroy', $laporan->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
