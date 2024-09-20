@@ -8,104 +8,119 @@
     <div class="row">
         <!-- Anggota -->
         <div class="col-md-3 mb-3">
-            <div class="card text-center">
-                <a href="{{ url('/users') }}" class="nav-link">
-                    <div class="card-body">
-                        <i class="fas fa-users fa-2x text-danger"></i> <!-- Icon anggota -->
-                        <h5 class="card-title mt-2">MANAJEMEN PENGGUNA</h5>
-                        <p class="card-text">{{ $data['manajemen pengguna'] }}</p>
-                    </div>
-                </a>
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <a href="{{ url('/users') }}" class="nav-link">
+                        <div class="card-body">
+                            <i class="fas fa-users fa-2x text-danger"></i> <!-- Icon anggota -->
+                            <h5 class="card-title mt-2">MANAJEMEN PENGGUNA</h5>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
 
         <!-- Item Produk -->
         <div class="col-md-3 mb-3">
-            <div class="card text-center">
-                <div class="card-body">
-                    <i class="fas fa-box fa-2x text-success"></i> <!-- Icon produk -->
-                    <h5 class="card-title mt-2">DATA MEMBER</h5>
-                    <p class="card-text">{{ $data['data member'] }}</p>
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <a href="{{ url('/members') }}" class="nav-link">
+                        <div class="card-body">
+                            <i class="fas fa-box fa-2x text-success"></i> <!-- Icon produk -->
+                            <h5 class="card-title mt-2">DATA MEMBER</h5>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
+        
 
         <!-- Tabungan Saldo -->
         <div class="col-md-3 mb-3">
-            <div class="card text-center">
-                <div class="card-body">
-                    <i class="fas fa-wallet fa-2x text-info"></i> <!-- Icon saldo -->
-                    <h5 class="card-title mt-2">TABUNGAN: SALDO</h5>
-                    <p class="card-text">Rp {{ number_format($data['tabunganSaldo'], 0, ',', '.') }}</p>
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <a href="{{ url('/pinjaman') }}" class="nav-link">
+                        <div class="card-body">
+                            <i class="fas fa-wallet fa-2x text-info"></i> <!-- Icon saldo -->
+                            <h5 class="card-title mt-2">PINJAMAN</h5>
+                            <p class="card-text">Rp {{ number_format($data['pinjaman'], 0, ',', '.') }}</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
+        
 
         <!-- Tabungan Debit -->
         <div class="col-md-3 mb-3">
-            <div class="card text-center">
-                <div class="card-body">
-                    <i class="fas fa-money-bill-wave fa-2x text-warning"></i> <!-- Icon debit -->
-                    <h5 class="card-title mt-2">TABUNGAN: DEBIT</h5>
-                    <p class="card-text">Rp {{ number_format($data['tabunganDebit'], 0, ',', '.') }}</p>
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <a href="{{ url('/angsuran') }}" class="nav-link">
+                        <div class="card-body">
+                            <i class="fas fa-money-bill-wave fa-2x text-warning"></i> <!-- Icon debit -->
+                            <h5 class="card-title mt-2">ANGSURAN</h5>
+                            <p class="card-text">Rp {{ number_format($data['angsuran'], 0, ',', '.') }}</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
-    </div>
 
     <!-- Row kedua -->
     <div class="row">
         <!-- Tabungan Kredit -->
         <div class="col-md-3 mb-3">
-            <div class="card text-center">
-                <div class="card-body">
-                    <i class="fas fa-credit-card fa-2x text-primary"></i> <!-- Icon kredit -->
-                    <h5 class="card-title mt-2">TABUNGAN: KREDIT</h5>
-                    <p class="card-text">Rp {{ number_format($data['tabunganKredit'], 0, ',', '.') }}</p>
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <a href="{{ url('/perjanjian') }}" class="nav-link">
+                        <div class="card-body">
+                            <i class="fas fa-credit-card fa-2x text-primary"></i> <!-- Icon kredit -->
+                            <h5 class="card-title mt-2">PERJANJIAN PINJAMAN</h5>
+                            <p class="card-text">Rp {{ number_format($data['perjanjian pinjaman'], 0, ',', '.') }}</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
 
         <!-- Transaksi Kredit -->
         <div class="col-md-3 mb-3">
-            <div class="card text-center">
-                <div class="card-body">
-                    <i class="fas fa-exchange-alt fa-2x text-success"></i> <!-- Icon transaksi kredit -->
-                    <h5 class="card-title mt-2">TRANSAKSI KREDIT</h5>
-                    <p class="card-text">{{ $data['transaksiKredit'] }}</p>
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <a href="{{ url('/laporans') }}" class="nav-link">
+                        <div class="card-body">
+                            <i class="fas fa-exchange-alt fa-2x text-success"></i> <!-- Icon transaksi kredit -->
+                            <h5 class="card-title mt-2">LAPORAN PINJAMAN</h5>
+                            <p class="card-text">{{ $data['laporan pinjaman'] }}</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
-
+        
         <!-- Uang Kredit: Biaya Admin -->
         <div class="col-md-3 mb-3">
-            <div class="card text-center">
-                <div class="card-body">
-                    <i class="fas fa-cog fa-2x text-secondary"></i> <!-- Icon biaya admin -->
-                    <h5 class="card-title mt-2">UANG KREDIT: BIAYA ADMIN</h5>
-                    <p class="card-text">Rp {{ number_format($data['uangKreditAdmin'], 0, ',', '.') }}</p>
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <a href="{{ url('/laporanA') }}" class="nav-link">
+                        <div class="card-body">
+                            <i class="fas fa-cog fa-2x text-secondary"></i> <!-- Icon biaya admin -->
+                            <h5 class="card-title mt-2">LAPORAN ANGSURAN</h5>
+                            <p class="card-text">Rp {{ number_format($data['laporan angsuran'], 0, ',', '.') }}</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
-
-        <!-- Uang Kredit: Belum Bayar -->
-        <div class="col-md-3 mb-3">
-            <div class="card text-center">
-                <div class="card-body">
-                    <i class="fas fa-exclamation-circle fa-2x text-danger"></i> <!-- Icon belum bayar -->
-                    <h5 class="card-title mt-2">UANG KREDIT: BELUM BAYAR</h5>
-                    <p class="card-text">Rp {{ number_format($data['uangKreditBelumBayar'], 0, ',', '.') }}</p>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Grafik -->
-    <div class="row mt-4">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <canvas id="logEntryTransactionChart"></canvas> <!-- Grafik ditampilkan di sini -->
+    <div class="container-fluid">
+        <div class="row mt-4">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <canvas id="logEntryTransactionChart"></canvas> <!-- Grafik ditampilkan di sini -->
+                    </div>
                 </div>
             </div>
         </div>

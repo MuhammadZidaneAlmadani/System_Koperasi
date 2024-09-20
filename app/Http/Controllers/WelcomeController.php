@@ -17,12 +17,11 @@ class WelcomeController extends Controller
         $data = [
             'manajemen pengguna' => 2,
             'data member' => 2,
-            'tabunganSaldo' => 375000,
-            'tabunganDebit' => 450000,
-            'tabunganKredit' => 75000,
-            'transaksiKredit' => 2,
-            'uangKreditAdmin' => 28000,
-            'uangKreditBelumBayar' => 151800,
+            'pinjaman' => 375000,
+            'angsuran' => 450000,
+            'perjanjian pinjaman' => 75000,
+            'laporan pinjaman' => 2,
+            'laporan angsuran' => 28000,
         ];
         
         return view('dashboard', ['breadcrumb' => $breadcrumb, 'activeMenu' => $activeMenu, 'data' => $data]);

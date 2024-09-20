@@ -33,7 +33,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($laporanAs as $laporan)
+            @foreach ($laporans as $laporan)
                 <tr>
                     <td>{{ $laporan->id }}</td>
                     <td>{{ $laporan->pinjaman_id }}</td>
