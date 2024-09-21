@@ -7,7 +7,7 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>User ID</th>
+                <th>User Name</th>
                 <th>Member Code</th>
                 <th>Registration Date</th>
                 <th>Actions</th>
@@ -17,7 +17,7 @@
             @foreach($members as $member)
                 <tr>
                     <td>{{ $member->id }}</td>
-                    <td>{{ $member->user_id }}</td>
+                    <td>{{ $member->user->name }}</td>
                     <td>{{ $member->member_code }}</td>
                     <td>{{ $member->registration_date }}</td>
                     <td>

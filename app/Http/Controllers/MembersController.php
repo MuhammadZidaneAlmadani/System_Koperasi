@@ -10,7 +10,7 @@ class MembersController extends Controller
     // Display a listing of the members
     public function index()
     {
-        $members = MembersModel::all();
+        $members = MembersModel::select('id','user_id','member_code','registration_date')->with('user')->get();
         return view('members.index', compact('members'));
     }
 

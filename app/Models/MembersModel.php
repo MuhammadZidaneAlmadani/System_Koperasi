@@ -11,6 +11,7 @@ class MembersModel extends Model
 
     protected $table = 'members'; // This points to the 'members' table
 
+    protected $primaryKey = 'id';
     protected $fillable = [
         'user_id',
         'member_code',
@@ -18,4 +19,8 @@ class MembersModel extends Model
     ];
 
     public $timestamps = true; // To handle 'created_at' and 'updated_at'
+
+    public function user(){
+        return $this->belongsTo(UsersModel::class, 'user_id','id');
+    }
 }
