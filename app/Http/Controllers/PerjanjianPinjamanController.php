@@ -71,16 +71,14 @@ class PerjanjianPinjamanController extends Controller
 
     public function generatePDF()
     {
-        // Fetch all records from the 'PerjanjianModel'
-        $laporanAs = PerjanjianModel::all();
+        $perjanjianPinjaman = PerjanjianModel::join('pinjaman', 'perjanjian_pinjaman.pinjaman_id', '=', 'pinjaman.id')
+            ->join('users', 'pinjaman.user_id', '=', 'users.id')
+            ->select('perjanjian_pinjaman.*', 'pinjaman.*', 'users.name')
+            ->get();
 
-        // Load the view for the PDF generation
-        $pdf = Pdf::loadView('Perjanjian.pdf', compact('laporanAs'));
+        $pdf = Pdf::loadView('Perjanjian.pdf', array('perjanjianPinjaman' =>  $perjanjianPinjaman));
 
         // Return the generated PDF
         return $pdf->download('perjanjian_pinjaman.pdf');
     }
-
-
-
 }

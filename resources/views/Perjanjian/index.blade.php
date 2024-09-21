@@ -2,9 +2,10 @@
 
 @section('content')
     <h1>Daftar Perjanjian Pinjaman</h1>
-    <!-- Perbaiki route untuk form create -->
-    <a href="{{ route('perjanjian.create') }}" class="btn btn-primary">Tambah Perjanjian</a>
-
+    <div class="mb-3 mt-2">
+        <a href="{{ route('perjanjian.create') }}" class="btn btn-primary">Tambah Perjanjian</a>
+        <a href="{{ route('perjanjian.pdf') }}" class="mx-3 btn btn-success">Cetak PDF</a>
+    </div>
     <table class="table">
         <thead>
             <tr>
@@ -26,8 +27,8 @@
                         <!-- Perbaiki route untuk tombol edit -->
                         <a href="{{ route('perjanjian.edit', $perjanjian->id) }}" class="btn btn-warning">Edit</a>
                         <!-- Perbaiki form untuk delete -->
-                        <a href="{{ route('perjanjian.pdf') }}" class="btn btn-success">Download PDF</a>
-                        <form action="{{ route('perjanjian.destroy', $perjanjian->id) }}" method="POST" style="display:inline;">
+                        <form action="{{ route('perjanjian.destroy', $perjanjian->id) }}" method="POST"
+                            style="display:inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Hapus</button>
