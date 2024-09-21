@@ -9,13 +9,17 @@ class PinjamanModel extends Model
 {
     use HasFactory;
 
-    protected $table = 'pinjaman'; // Points to the 'pinjaman' table
+
+    protected $table = 'pinjaman';
 
     protected $fillable = [
-        'user_id',
+        'nama_member',
         'jumlah',
+        'bunga',
+        'tenor',
+        'status_pinjaman',
         'tanggal_pinjaman',
     ];
 
-    public $timestamps = true; // Handles 'created_at' and 'updated_at'
+    public $timestamps = true;
 }

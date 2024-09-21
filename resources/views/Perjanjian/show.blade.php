@@ -13,6 +13,10 @@
             <td>{{ $perjanjian->pinjaman_id }}</td>
         </tr>
         <tr>
+            <th>Nominal</th>
+            <td>{{ $perjanjian->nominal }}</td> <!-- Menampilkan nominal -->
+        </tr>
+        <tr>
             <th>Detail Perjanjian</th>
             <td>{{ $perjanjian->detail_perjanjian }}</td>
         </tr>

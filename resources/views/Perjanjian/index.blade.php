@@ -11,6 +11,7 @@
             <tr>
                 <th>ID</th>
                 <th>Pinjaman ID</th>
+                <th>Nominal</th> <!-- Menambahkan kolom nominal -->
                 <th>Detail Perjanjian</th>
                 <th>Tindakan</th>
             </tr>
@@ -20,13 +21,11 @@
                 <tr>
                     <td>{{ $perjanjian->id }}</td>
                     <td>{{ $perjanjian->pinjaman_id }}</td>
+                    <td>{{ $perjanjian->nominal }}</td> <!-- Menampilkan nominal -->
                     <td>{{ $perjanjian->detail_perjanjian }}</td>
                     <td>
-                        <!-- Perbaiki route untuk tombol detail -->
                         <a href="{{ route('perjanjian.show', $perjanjian->id) }}" class="btn btn-info">Detail</a>
-                        <!-- Perbaiki route untuk tombol edit -->
                         <a href="{{ route('perjanjian.edit', $perjanjian->id) }}" class="btn btn-warning">Edit</a>
-                        <!-- Perbaiki form untuk delete -->
                         <form action="{{ route('perjanjian.destroy', $perjanjian->id) }}" method="POST"
                             style="display:inline;">
                             @csrf

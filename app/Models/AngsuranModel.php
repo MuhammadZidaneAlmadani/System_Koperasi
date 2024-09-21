@@ -12,16 +12,17 @@ class AngsuranModel extends Model
     protected $table = 'angsuran'; // Nama tabel sesuai gambar
 
     protected $fillable = [
-        'pinjaman_id',
+        'nama_member', // Mengganti pinjaman_id dengan nama_member
         'jumlah_angsuran',
         'tanggal_angsuran',
-        'created_at',
-        'updated_at',
+        'nomor_angsuran',
+        'status_angsuran',
+        'metode_pembayaran',
     ];
 
-    // Definisi relasi ke tabel Pinjaman (jika diperlukan)
-    public function pinjaman()
-    {
-        return $this->belongsTo(PinjamanModel::class, 'pinjaman_id');
-    }
+    // Jika diperlukan relasi ke tabel Pinjaman, tambahkan relasi (optional)
+    // public function pinjaman()
+    // {
+    //     return $this->belongsTo(PinjamanModel::class, 'pinjaman_id');
+    // }
 }

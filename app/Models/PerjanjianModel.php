@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -13,12 +12,13 @@ class PerjanjianModel extends Model
 
     protected $fillable = [
         'pinjaman_id',
+        'nominal', // Tambahkan nominal
         'detail_perjanjian',
         'created_at',
         'updated_at',
     ];
 
-    // Definisi relasi jika diperlukan (misalnya ke tabel pinjaman)
+    // Definisi relasi ke tabel pinjaman
     public function pinjaman()
     {
         return $this->belongsTo(PinjamanModel::class, 'pinjaman_id');

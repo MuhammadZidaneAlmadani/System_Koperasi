@@ -9,8 +9,8 @@
             <td>{{ $angsuran->id }}</td>
         </tr>
         <tr>
-            <th>Pinjaman ID</th>
-            <td>{{ $angsuran->pinjaman_id }}</td>
+            <th>Nama Member</th>
+            <td>{{ $angsuran->nama_member }}</td>
         </tr>
         <tr>
             <th>Jumlah Angsuran</th>
@@ -19,6 +19,18 @@
         <tr>
             <th>Tanggal Angsuran</th>
             <td>{{ $angsuran->tanggal_angsuran }}</td>
+        </tr>
+        <tr>
+            <th>Nomor Angsuran</th>
+            <td>{{ $angsuran->nomor_angsuran }}</td>
+        </tr>
+        <tr>
+            <th>Status Angsuran</th>
+            <td>{{ $angsuran->status_angsuran }}</td>
+        </tr>
+        <tr>
+            <th>Metode Pembayaran</th>
+            <td>{{ $angsuran->metode_pembayaran }}</td>
         </tr>
         <tr>
             <th>Created At</th>

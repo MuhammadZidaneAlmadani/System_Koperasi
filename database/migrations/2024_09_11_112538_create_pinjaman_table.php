@@ -14,11 +14,15 @@ public function up()
 {
     Schema::create('pinjaman', function (Blueprint $table) {
         $table->id();
-        $table->foreignId('anggota_id')->constrained('members')->onDelete('cascade'); // Menggunakan 'members' sebagai nama tabel
+        $table->string('nama_member'); // Nama lengkap member dari tabel 'members'
         $table->double('jumlah');
+        $table->double('bunga')->nullable(); // Kolom untuk bunga
+        $table->integer('tenor')->nullable(); // Kolom untuk tenor
+        $table->enum('status_pinjaman', ['belum lunas', 'lunas', 'dalam proses'])->default('belum lunas');
         $table->date('tanggal_pinjaman');
         $table->timestamps();
     });
+
 }
 
 

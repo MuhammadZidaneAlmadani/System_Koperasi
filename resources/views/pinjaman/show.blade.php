@@ -8,12 +8,24 @@
             <td>{{ $pinjaman->id }}</td>
         </tr>
         <tr>
-            <th>User ID</th>
-            <td>{{ $pinjaman->user_id }}</td>
+            <th>Nama Member</th> <!-- Ganti User ID dengan Nama Member -->
+            <td>{{ $pinjaman->nama_member }}</td>
         </tr>
         <tr>
             <th>Jumlah</th>
             <td>{{ $pinjaman->jumlah }}</td>
+        </tr>
+        <tr>
+            <th>Bunga</th> <!-- Tambahkan kolom bunga -->
+            <td>{{ $pinjaman->bunga }}</td>
+        </tr>
+        <tr>
+            <th>Tenor</th> <!-- Tambahkan kolom tenor -->
+            <td>{{ $pinjaman->tenor }}</td>
+        </tr>
+        <tr>
+            <th>Status Pinjaman</th> <!-- Tambahkan kolom status pinjaman -->
+            <td>{{ $pinjaman->status_pinjaman }}</td>
         </tr>
         <tr>
             <th>Tanggal Pinjaman</th>

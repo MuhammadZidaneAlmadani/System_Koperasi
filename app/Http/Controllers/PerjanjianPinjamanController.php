@@ -27,6 +27,7 @@ class PerjanjianPinjamanController extends Controller
     {
         $validatedData = $request->validate([
             'pinjaman_id' => 'required|integer',
+            'nominal' => 'required|numeric', // Validasi nominal
             'detail_perjanjian' => 'required|string|max:255',
         ]);
 
@@ -53,6 +54,7 @@ class PerjanjianPinjamanController extends Controller
     {
         $validatedData = $request->validate([
             'pinjaman_id' => 'required|integer',
+            'nominal' => 'required|numeric', // Validasi nominal
             'detail_perjanjian' => 'required|string|max:255',
         ]);
 
@@ -73,12 +75,11 @@ class PerjanjianPinjamanController extends Controller
     {
         $perjanjianPinjaman = PerjanjianModel::join('pinjaman', 'perjanjian_pinjaman.pinjaman_id', '=', 'pinjaman.id')
             ->join('users', 'pinjaman.user_id', '=', 'users.id')
-            ->select('perjanjian_pinjaman.*', 'pinjaman.*', 'users.name')
+            ->select('perjanjian_pinjaman.*', 'pinjaman.nominal', 'pinjaman.tanggal_pinjaman', 'users.name') // Tambahkan nominal dan tanggal
             ->get();
 
         $pdf = Pdf::loadView('Perjanjian.pdf', array('perjanjianPinjaman' =>  $perjanjianPinjaman));
 
-        // Return the generated PDF
         return $pdf->download('perjanjian_pinjaman.pdf');
     }
 }

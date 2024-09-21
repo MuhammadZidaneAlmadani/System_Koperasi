@@ -13,6 +13,11 @@
         </div>
 
         <div class="form-group">
+            <label for="nominal">Nominal</label>
+            <input type="number" name="nominal" class="form-control" id="nominal" value="{{ $perjanjian->nominal }}" required>
+        </div>
+
+        <div class="form-group">
             <label for="detail_perjanjian">Detail Perjanjian</label>
             <textarea name="detail_perjanjian" class="form-control" id="detail_perjanjian" required>{{ $perjanjian->detail_perjanjian }}</textarea>
         </div>

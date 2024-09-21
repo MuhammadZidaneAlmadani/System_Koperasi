@@ -7,9 +7,11 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Pinjaman ID</th>
+                <th>Nama Member</th>
                 <th>Jumlah Angsuran</th>
                 <th>Tanggal Angsuran</th>
+                <th>Status Angsuran</th>
+                <th>Metode Pembayaran</th>
                 <th>Tindakan</th>
             </tr>
         </thead>
@@ -17,9 +19,11 @@
             @foreach ($angsurans as $angsuran)
                 <tr>
                     <td>{{ $angsuran->id }}</td>
-                    <td>{{ $angsuran->pinjaman_id }}</td>
+                    <td>{{ $angsuran->nama_member }}</td>
                     <td>{{ $angsuran->jumlah_angsuran }}</td>
                     <td>{{ $angsuran->tanggal_angsuran }}</td>
+                    <td>{{ $angsuran->status_angsuran }}</td>
+                    <td>{{ $angsuran->metode_pembayaran }}</td>
                     <td>
                         <a href="{{ route('anggaran.show', $angsuran->id) }}" class="btn btn-info">Detail</a>
                         <a href="{{ route('anggaran.edit', $angsuran->id) }}" class="btn btn-warning">Edit</a>

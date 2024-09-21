@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pinjaman;
 use App\Models\PinjamanModel;
 use Illuminate\Http\Request;
 
@@ -24,20 +23,31 @@ class PinjamanController extends Controller
     // Store a newly created pinjaman in the database
     public function store(Request $request)
     {
+        // Validasi input
         $request->validate([
-            'user_id' => 'required|integer',
+            'nama_member' => 'required|string|max:255', // Menggunakan nama_member
             'jumlah' => 'required|numeric',
             'tanggal_pinjaman' => 'required|date',
+            'bunga' => 'nullable|numeric', // Jika bunga opsional
+            'tenor' => 'nullable|integer', // Jika tenor opsional
+            'status_pinjaman' => 'required|in:belum lunas,lunas,dalam proses', // Validasi status
         ]);
 
+        // Buat objek pinjaman baru
         $pinjaman = new PinjamanModel([
-            'user_id' => $request->get('user_id'),
+            'nama_member' => $request->get('nama_member'), // Gunakan nama_member
             'jumlah' => $request->get('jumlah'),
             'tanggal_pinjaman' => $request->get('tanggal_pinjaman'),
+            'bunga' => $request->get('bunga'), // Bisa kosong jika tidak diisi
+            'tenor' => $request->get('tenor'), // Bisa kosong jika tidak diisi
+            'status_pinjaman' => $request->get('status_pinjaman'),
         ]);
 
+        // Simpan data ke database
         $pinjaman->save();
-        return redirect('/pinjaman')->with('success', 'Pinjaman created successfully');
+
+        // Redirect ke halaman daftar pinjaman dengan pesan sukses
+        return redirect()->route('pinjamans.index')->with('success', 'Pinjaman created successfully');
     }
 
     // Display the specified pinjaman
@@ -57,19 +67,28 @@ class PinjamanController extends Controller
     // Update the specified pinjaman in the database
     public function update(Request $request, $id)
     {
+        // Validasi input
         $request->validate([
-            'user_id' => 'required|integer',
+            'nama_member' => 'required|string|max:255', // Ganti user_id dengan nama_member
             'jumlah' => 'required|numeric',
             'tanggal_pinjaman' => 'required|date',
+            'bunga' => 'nullable|numeric', // Jika bunga opsional
+            'tenor' => 'nullable|integer', // Jika tenor opsional
+            'status_pinjaman' => 'required|in:belum lunas,lunas,dalam proses', // Validasi status
         ]);
 
+        // Cari pinjaman berdasarkan ID dan update
         $pinjaman = PinjamanModel::findOrFail($id);
-        $pinjaman->user_id = $request->get('user_id');
+        $pinjaman->nama_member = $request->get('nama_member');
         $pinjaman->jumlah = $request->get('jumlah');
         $pinjaman->tanggal_pinjaman = $request->get('tanggal_pinjaman');
+        $pinjaman->bunga = $request->get('bunga');
+        $pinjaman->tenor = $request->get('tenor');
+        $pinjaman->status_pinjaman = $request->get('status_pinjaman');
         $pinjaman->save();
 
-        return redirect('/pinjaman')->with('success', 'Pinjaman updated successfully');
+        // Redirect ke halaman daftar pinjaman dengan pesan sukses
+        return redirect()->route('pinjamans.index')->with('success', 'Pinjaman updated successfully');
     }
 
     // Remove the specified pinjaman from the database
@@ -78,7 +97,7 @@ class PinjamanController extends Controller
         $pinjaman = PinjamanModel::findOrFail($id);
         $pinjaman->delete();
 
-        return redirect('/pinjaman')->with('success', 'Pinjaman created successfully');
-
+        // Redirect ke halaman daftar pinjaman dengan pesan sukses
+        return redirect()->route('pinjamans.index')->with('success', 'Pinjaman deleted successfully');
     }
 }

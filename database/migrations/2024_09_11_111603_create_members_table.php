@@ -16,9 +16,14 @@ public function up()
         $table->id();
         $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
         $table->string('member_code')->unique();
+        $table->string('nama_lengkap'); // Nama lengkap tanpa pemisahan depan dan belakang
+        $table->string('alamat')->nullable(); // Alamat
+        $table->string('nomor_telepon')->nullable(); // Nomor telepon
+        $table->enum('status_member', ['aktif', 'non-aktif'])->default('aktif');
         $table->date('registration_date');
         $table->timestamps();
     });
+
 }
 
 

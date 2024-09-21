@@ -11,6 +11,7 @@ use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\PinjamanController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\DashboardController;
 
 // Pattern untuk {id} harus berupa angka
 Route::pattern('id', '[0-9]+');
@@ -124,5 +125,7 @@ Route::middleware(['auth'])->group(function() {
         Route::put('/{id}', [AngsuranController::class, 'update'])->name('anggaran.update');
         Route::delete('/{id}', [AngsuranController::class, 'destroy'])->name('anggaran.destroy');
     });
+
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
 });

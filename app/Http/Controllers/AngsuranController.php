@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\AngsuranModel;
-use App\Models\PinjamanModel;
 use Illuminate\Http\Request;
 
 class AngsuranController extends Controller
@@ -12,24 +11,25 @@ class AngsuranController extends Controller
     public function index()
     {
         $angsurans = AngsuranModel::all();
-        return view('Angsuran.index', compact('angsurans'));
+        return view('angsuran.index', compact('angsurans'));
     }
 
     // Menampilkan form create
     public function create()
     {
-        $pinjaman = PinjamanModel::all(); // Mengambil semua data pinjaman
-        return view('Angsuran.create', compact('pinjaman'));
+        return view('angsuran.create');
     }
-
 
     // Menyimpan angsuran baru
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'pinjaman_id' => 'required|exists:pinjaman,id',
+            'nama_member' => 'required|string|max:255',
             'jumlah_angsuran' => 'required|numeric',
             'tanggal_angsuran' => 'required|date',
+            'nomor_angsuran' => 'required|integer',
+            'status_angsuran' => 'required|in:terbayar,tertunda',
+            'metode_pembayaran' => 'nullable|string|max:255',
         ]);
 
         AngsuranModel::create($validatedData);
@@ -41,23 +41,26 @@ class AngsuranController extends Controller
     public function show($id)
     {
         $angsuran = AngsuranModel::findOrFail($id);
-        return view('Angsuran.show', compact('angsuran'));
+        return view('angsuran.show', compact('angsuran'));
     }
 
     // Menampilkan form edit
     public function edit($id)
     {
         $angsuran = AngsuranModel::findOrFail($id);
-        return view('Angsuran.edit', compact('angsuran'));
+        return view('angsuran.edit', compact('angsuran'));
     }
 
     // Mengupdate angsuran
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
-            'pinjaman_id' => 'required|integer',
+            'nama_member' => 'required|string|max:255',
             'jumlah_angsuran' => 'required|numeric',
             'tanggal_angsuran' => 'required|date',
+            'nomor_angsuran' => 'required|integer',
+            'status_angsuran' => 'required|in:terbayar,tertunda',
+            'metode_pembayaran' => 'nullable|string|max:255',
         ]);
 
         $angsuran = AngsuranModel::findOrFail($id);

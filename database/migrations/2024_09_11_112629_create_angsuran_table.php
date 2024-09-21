@@ -14,11 +14,15 @@ public function up()
 {
     Schema::create('angsuran', function (Blueprint $table) {
         $table->id();
-        $table->foreignId('pinjaman_id')->constrained('pinjaman')->onDelete('cascade');
+        $table->string('nama_member'); // Nama lengkap member dari tabel 'pinjaman'
         $table->double('jumlah_angsuran');
         $table->date('tanggal_angsuran');
+        $table->integer('nomor_angsuran')->nullable(); // Nomor angsuran ke-berapa
+        $table->enum('status_angsuran', ['terbayar', 'tertunda'])->default('terbayar'); // Status angsuran
+        $table->string('metode_pembayaran')->nullable(); // Metode pembayaran
         $table->timestamps();
     });
+
 }
 
 

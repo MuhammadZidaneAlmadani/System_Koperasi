@@ -16,8 +16,10 @@ public function up()
         $table->id();
         $table->foreignId('pinjaman_id')->constrained('pinjaman')->onDelete('cascade');
         $table->string('detail_perjanjian');
+        $table->double('nominal');
         $table->timestamps();
     });
+
 }
 
 

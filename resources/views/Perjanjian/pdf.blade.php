@@ -51,7 +51,7 @@
                 <th>Pinjaman ID</th>
                 <th>Nama User</th>
                 <th>Detail Perjanjian</th>
-                <th>Jumlah Pinjaman</th>
+                <th>Nominal</th> <!-- Menambahkan kolom nominal -->
                 <th>Tanggal Pinjaman</th>
             </tr>
         </thead>
@@ -63,7 +63,7 @@
                     <td>{{ $laporan->pinjaman_id }}</td>
                     <td>{{ $laporan->name }}</td>
                     <td>{{ $laporan->detail_perjanjian }}</td>
-                    <td>{{ $laporan->jumlah }}</td>
+                    <td>{{ number_format($laporan->nominal, 0, ',', '.') }}</td> <!-- Menampilkan nominal -->
                     <td>{{ $laporan->tanggal_pinjaman }}</td>
                 </tr>
             @endforeach
