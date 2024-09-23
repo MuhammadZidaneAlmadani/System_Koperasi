@@ -7,11 +7,11 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Nama Member</th> <!-- Ganti User ID dengan Nama Member -->
+                <th>Nama Member</th>
                 <th>Jumlah</th>
-                <th>Bunga</th> <!-- Tambahkan kolom bunga -->
-                <th>Tenor</th> <!-- Tambahkan kolom tenor -->
-                <th>Status Pinjaman</th> <!-- Tambahkan kolom status pinjaman -->
+                <th>Bunga</th>
+                <th>Tenor</th>
+                <th>Status Pinjaman</th>
                 <th>Tanggal Pinjaman</th>
                 <th>Actions</th>
             </tr>

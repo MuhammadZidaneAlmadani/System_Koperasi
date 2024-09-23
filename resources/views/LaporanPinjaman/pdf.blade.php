@@ -47,22 +47,24 @@
     <table>
         <thead>
             <tr>
-                <th>No</th>
-                <th>Pinjaman ID</th>
-                <th>Nama User</th>
-                <th>Detail Laporan</th>
-                <th>Jumlah Pinjaman</th>
+                <th>ID</th>
+                <th>Nama Member</th>
+                <th>Jumlah</th>
+                <th>Bunga</th>
+                <th>Tenor</th>
+                <th>Status Pinjaman</th>
                 <th>Tanggal Pinjaman</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($laporans as $laporan)
                 <tr>
-                    <td>{{ ++$no }}</td>
-                    <td>{{ $laporan->pinjaman_id }}</td>
-                    <td>{{ $laporan->name }}</td>
-                    <td>{{ $laporan->detail_laporan }}</td>
+                    <td>{{ $laporan->id }}</td>
+                    <td>{{ $laporan->nama_member }}</td>
                     <td>{{ $laporan->jumlah }}</td>
+                    <td>{{ $laporan->bunga }}</td>
+                    <td>{{ $laporan->tenor }}</td>
+                    <td>{{ $laporan->status_pinjaman }}</td>
                     <td>{{ $laporan->tanggal_pinjaman }}</td>
                 </tr>
             @endforeach

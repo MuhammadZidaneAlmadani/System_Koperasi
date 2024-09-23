@@ -47,22 +47,34 @@
     <table>
         <thead>
             <tr>
-                <th>No</th>
+                {{-- <th>No</th>
                 <th>Angsuran ID</th>
                 <th>Detail Laporan</th>
                 <th>Jumlah Angsuran</th>
+                <th>Tanggal Angsuran</th> --}}
+                <th>ID</th>
+                <th>Nama Member</th>
+                <th>Jumlah Angsuran</th>
                 <th>Tanggal Angsuran</th>
+                <th>Status Angsuran</th>
+                <th>Metode Pembayaran</th>
             </tr>
         </thead>
         <tbody>
             <?php $no = 0; ?>
-            @foreach ($laporanAs as $laporan)
+            @foreach ($laporanAs as $laporanA)
                 <tr>
-                    <td>{{ ++$no }}</td>
+                    {{-- <td>{{ ++$no }}</td>
                     <td>{{ $laporan->angsuran_id }}</td>
                     <td>{{ $laporan->detail_laporan }}</td>
                     <td>{{ $laporan->jumlah_angsuran }}</td>
-                    <td>{{ $laporan->tanggal_angsuran }}</td>
+                    <td>{{ $laporan->tanggal_angsuran }}</td> --}}
+                    <td>{{ $laporanA->id }}</td>
+                    <td>{{ $laporanA->nama_member }}</td>
+                    <td>{{ $laporanA->jumlah_angsuran }}</td>
+                    <td>{{ $laporanA->tanggal_angsuran }}</td>
+                    <td>{{ $laporanA->status_angsuran }}</td>
+                    <td>{{ $laporanA->metode_pembayaran }}</td>
                 </tr>
             @endforeach
         </tbody>

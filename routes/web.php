@@ -88,13 +88,13 @@ Route::middleware(['auth'])->group(function() {
     // Route untuk Data Laporan (Laporan Pinjaman dan Laporan Angsuran)
     Route::group(['prefix' => 'laporans'], function() {
         Route::get('/', [LaporanPinjamanController::class, 'index'])->name('laporans.index');
-        Route::post('/list', [LaporanPinjamanController::class, 'list'])->name('laporans.list');
-        Route::get('/create', [LaporanPinjamanController::class, 'create'])->name('laporans.create');
-        Route::post('/', [LaporanPinjamanController::class, 'store'])->name('laporans.store');
-        Route::get('/{id}', [LaporanPinjamanController::class, 'show'])->name('laporans.show');
-        Route::get('/{id}/edit', [LaporanPinjamanController::class, 'edit'])->name('laporans.edit');
-        Route::put('/{id}', [LaporanPinjamanController::class, 'update'])->name('laporans.update');
-        Route::delete('/{id}', [LaporanPinjamanController::class, 'destroy'])->name('laporans.destroy');
+        // Route::post('/list', [LaporanPinjamanController::class, 'list'])->name('laporans.list');
+        // Route::get('/create', [LaporanPinjamanController::class, 'create'])->name('laporans.create');
+        // Route::post('/', [LaporanPinjamanController::class, 'store'])->name('laporans.store');
+        // Route::get('/{id}', [LaporanPinjamanController::class, 'show'])->name('laporans.show');
+        // Route::get('/{id}/edit', [LaporanPinjamanController::class, 'edit'])->name('laporans.edit');
+        // Route::put('/{id}', [LaporanPinjamanController::class, 'update'])->name('laporans.update');
+        // Route::delete('/{id}', [LaporanPinjamanController::class, 'destroy'])->name('laporans.destroy');
         Route::get('/laporans/pdf', [LaporanPinjamanController::class, 'generatePDF'])->name('laporans.pdf');
 
     });
@@ -102,13 +102,13 @@ Route::middleware(['auth'])->group(function() {
 
     Route::group(['prefix' => 'laporanA'], function() {
         Route::get('/', [LaporanAngsuranController::class, 'index'])->name('laporanA.index');
-        Route::post('/list', [LaporanAngsuranController::class, 'list'])->name('laporanA.list');
-        Route::get('/create', [LaporanAngsuranController::class, 'create'])->name('laporanA.create');
-        Route::post('/', [LaporanAngsuranController::class, 'store'])->name('laporanA.store');
-        Route::get('/{id}', [LaporanAngsuranController::class, 'show'])->name('laporanA.show');
-        Route::get('/{id}/edit', [LaporanAngsuranController::class, 'edit'])->name('laporanA.edit');
-        Route::put('/{id}', [LaporanAngsuranController::class, 'update'])->name('laporanA.update');
-        Route::delete('/{id}', [LaporanAngsuranController::class, 'destroy'])->name('laporanA.destroy');
+        // Route::post('/list', [LaporanAngsuranController::class, 'list'])->name('laporanA.list');
+        // Route::get('/create', [LaporanAngsuranController::class, 'create'])->name('laporanA.create');
+        // Route::post('/', [LaporanAngsuranController::class, 'store'])->name('laporanA.store');
+        // Route::get('/{id}', [LaporanAngsuranController::class, 'show'])->name('laporanA.show');
+        // Route::get('/{id}/edit', [LaporanAngsuranController::class, 'edit'])->name('laporanA.edit');
+        // Route::put('/{id}', [LaporanAngsuranController::class, 'update'])->name('laporanA.update');
+        // Route::delete('/{id}', [LaporanAngsuranController::class, 'destroy'])->name('laporanA.destroy');
         Route::get('/laporans/pdf', [LaporanAngsuranController::class, 'generatePDF'])->name('laporanA.pdf');
 
     });
